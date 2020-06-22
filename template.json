@@ -1,0 +1,96 @@
+{
+    "definition": {
+        "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+        "actions": {
+            "HTTP": {
+                "inputs": {
+                    "body": "@triggerBody()?['data']",
+                    "method": "POST",
+                    "uri": "https://78ca536d4225.ngrok.io/load"
+                },
+                "runAfter": {},
+                "type": "Http"
+            }
+        },
+        "contentVersion": "1.0.0.0",
+        "outputs": {},
+        "parameters": {},
+        "triggers": {
+            "manual": {
+                "inputs": {
+                    "schema": {
+                        "properties": {
+                            "data": {
+                                "properties": {
+                                    "experimentId": {
+                                        "type": "string"
+                                    },
+                                    "experimentName": {
+                                        "type": "string"
+                                    },
+                                    "runId": {
+                                        "type": "string"
+                                    },
+                                    "runProperties": {
+                                        "properties": {
+                                            "_azureml.ComputeTargetType": {
+                                                "type": "string"
+                                            },
+                                            "contentSnapshotId": {
+                                                "type": "string"
+                                            },
+                                            "processInfoFile": {
+                                                "type": "string"
+                                            },
+                                            "processStatusFile": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    },
+                                    "runTags": {
+                                        "properties": {
+                                            "_aml_system_ComputeTargetStatus": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    },
+                                    "runType": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "dataVersion": {
+                                "type": "string"
+                            },
+                            "eventTime": {
+                                "type": "string"
+                            },
+                            "eventType": {
+                                "type": "string"
+                            },
+                            "id": {
+                                "type": "string"
+                            },
+                            "metadataVersion": {
+                                "type": "string"
+                            },
+                            "subject": {
+                                "type": "string"
+                            },
+                            "topic": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    }
+                },
+                "kind": "Http",
+                "type": "Request"
+            }
+        }
+    },
+    "parameters": {}
+}
